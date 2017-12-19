@@ -11,7 +11,7 @@ public class RTypeGame extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img;
 	Sprite prota;
-	
+	private InputProcesador inputproc;
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
