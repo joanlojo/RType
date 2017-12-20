@@ -2,12 +2,13 @@ package com.rtype.game;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 
 /**
  * Created by sobre on 19/12/2017.
  */
 
-public class MainCharacter {
+public class Player extends Actor {
     Sprite pj;
     Texture img;
 
