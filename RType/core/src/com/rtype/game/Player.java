@@ -8,13 +8,15 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
  * Created by sobre on 19/12/2017.
  */
 
-public class Player extends Actor {
-    Sprite pj;
-    Texture img;
+public class Player extends GameObject {
+    //GameObject gameObject;
 
-    public void loadImage(){
-        img = new Texture("Nave.png");
-        pj = new Sprite(img);
+    public void Player(Sprite _sprite){
+        sprite = _sprite;
+    }
+    public void act(float delta){
+        //implementarlo con el delay
+        //if el raton se mueve-> mover la nave
     }
     public void goUp(){
 

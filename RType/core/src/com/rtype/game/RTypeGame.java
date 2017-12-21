@@ -11,39 +11,35 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class RTypeGame extends Game {
 	private Stage stage;
+	private Sprite spriteP;
+	private Texture texture;
+  	private Player player;
+	private EnemyStraight enemyStraight;
 
-    SpriteBatch batch;
-	Texture img;
-	Sprite bg;
-	private InputProcesador inputproc;
-	//Player pj;
 	@Override
 	public void create () {
-		batch = new SpriteBatch();
-		img = new Texture("cielo.jpg");
-		bg = new Sprite(img);
-        bg.scale(0.7f);
+		stage = new Stage();
+		texture = new Texture("Nave.png");
+		spriteP = new Sprite(texture);
+		//player = new Player(spriteP);
+		enemyStraight = new EnemyStraight();
 
-		//inputproc = new InputProcesador(pj);
-		//Gdx.input.setInputProcessor(inputproc);
+		stage.addActor(player);
+		player.setPosition(100,100);
 	}
 
 	@Override
 	public void render () {
-		//Gdx.gl.glClearColor(1, 0, 0, 1);
-		//Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		bg.draw(batch);
-		batch.end();
-        inputUser();
+		super.render();
+		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		stage.act(); //de esta menera se llama a las funciones act y draw de todas las clases que heredan de actor
+		stage.draw();
 	}
 	
 	@Override
 	public void dispose () {
-		batch.dispose();
-		img.dispose();
+		super.dispose();
+		stage.dispose();
 	}
-	public void inputUser(){
-    }
 }

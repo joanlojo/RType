@@ -1,5 +1,8 @@
 package com.rtype.game;
 
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 /**
@@ -7,4 +10,14 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
  */
 
 public class GameObject extends Actor {
+    public Sprite sprite;
+
+    public void GameObject(Sprite _sprite){
+        sprite = _sprite;
+    }
+
+    public void Draw(Batch batch, float parentAlpha){
+        //implementarlo
+        batch.draw(sprite, getX(), getY());//nose si faltan parametros
+    }
 }
