@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class EnemyStraight extends Enemy {
 
-    public void EnemyStraight(Sprite _sprite){
+    public EnemyStraight(Sprite _sprite){
         sprite = _sprite;
     }
 

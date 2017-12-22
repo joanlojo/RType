@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class EnemyZigzag extends Enemy {
 
-    public void EnemyZigzag(Sprite _sprite){
+    public EnemyZigzag(Sprite _sprite){
         sprite = _sprite;
     }
 

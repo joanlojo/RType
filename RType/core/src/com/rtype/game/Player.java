@@ -11,7 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 public class Player extends GameObject {
     //GameObject gameObject;
 
-    public void Player(Sprite _sprite){
+    public Player(Sprite _sprite){
         sprite = _sprite;
     }
     public void act(float delta){
