@@ -14,6 +14,6 @@ public class EnemyZigzag extends Enemy {
     }
 
     public void act(float delta){
-        //movimiento
+        Spawn();
     }
 }

@@ -1,5 +1,6 @@
 package com.rtype.game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.math.Vector2;
 
@@ -10,6 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 public class InputProcesador extends InputAdapter {
     private Player personaje;
     private Vector2 lastTouch = new Vector2();
+    private int delay = 100;
 
     public InputProcesador(Player k){
         personaje = k;
@@ -27,10 +29,10 @@ public class InputProcesador extends InputAdapter {
         Vector2 delta = newTouch.cpy().sub(lastTouch);
         lastTouch = newTouch;
         if(delta.y < 0){
-            personaje.goUp();
+            personaje.goUp(Gdx.graphics.getDeltaTime());
         }
         else{
-            personaje.goDown();
+            personaje.goDown(Gdx.graphics.getDeltaTime());
         }
         return true;
     }

@@ -28,18 +28,21 @@ public class RTypeGame extends Game {
 		enemyZigzag = new EnemyZigzag(textureEZ);
 
 		stage.addActor(player);
-		player.setPosition(0,Gdx.graphics.getHeight()/2);
 		player.scaleBy(0.001f);
+		//player.setOrigin(texturePJ.getWidth()/2, texturePJ.getHeight()/2);
+		player.setPosition(10,Gdx.graphics.getHeight()/2 + texturePJ.getHeight()/2);
+		player.setRotation(-90);
 
 		stage.addActor(enemyZigzag);
-		enemyZigzag.setPosition(500 - enemyZigzag.getWidth(),300);
+		//enemyZigzag.setPosition(Gdx.graphics.getWidth() - textureEZ.getWidth(),300);
+		enemyZigzag.setRotation(90);
 		enemyZigzag.scaleBy(0.001f);
-		//enemyZigzag.rotateBy(180);
 
 		stage.addActor(enemyStraight);
-		enemyStraight.setPosition(500,100);
+		//enemyStraight.setPosition(Gdx.graphics.getWidth()-textureES.getWidth(),100);
+		enemyStraight.setRotation(90);
 		enemyStraight.scaleBy(0.001f);
-		enemyStraight.rotateBy(180);
+
 
 	}
 
