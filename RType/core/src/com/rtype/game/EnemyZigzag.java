@@ -1,5 +1,6 @@
 package com.rtype.game;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 /**
@@ -8,8 +9,8 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class EnemyZigzag extends Enemy {
 
-    public EnemyZigzag(Sprite _sprite){
-        sprite = _sprite;
+    public EnemyZigzag(Texture texture){
+        this.texture = texture;
     }
 
     public void act(float delta){

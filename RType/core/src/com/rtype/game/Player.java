@@ -11,8 +11,8 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 public class Player extends GameObject {
     //GameObject gameObject;
 
-    public Player(Sprite _sprite){
-        sprite = _sprite;
+    public Player(Texture texture){
+        this.texture = texture;
     }
     public void act(float delta){
         //implementarlo con el delay
