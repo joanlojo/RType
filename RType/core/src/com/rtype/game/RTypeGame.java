@@ -29,17 +29,14 @@ public class RTypeGame extends Game {
 
 		stage.addActor(player);
 		player.scaleBy(0.001f);
-		//player.setOrigin(texturePJ.getWidth()/2, texturePJ.getHeight()/2);
 		player.setPosition(10,Gdx.graphics.getHeight()/2 + texturePJ.getHeight()/2);
 		player.setRotation(-90);
 
 		stage.addActor(enemyZigzag);
-		//enemyZigzag.setPosition(Gdx.graphics.getWidth() - textureEZ.getWidth(),300);
 		enemyZigzag.setRotation(90);
 		enemyZigzag.scaleBy(0.001f);
 
 		stage.addActor(enemyStraight);
-		//enemyStraight.setPosition(Gdx.graphics.getWidth()-textureES.getWidth(),100);
 		enemyStraight.setRotation(90);
 		enemyStraight.scaleBy(0.001f);
 
@@ -49,19 +46,19 @@ public class RTypeGame extends Game {
 	@Override
 	public void render () {
 		super.render();
-		//Gdx.gl.glClearColor(0, 0, 0, 1);
-		//Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		stage.act(Gdx.graphics.getDeltaTime()); //de esta menera se llama a las funciones act y draw de todas las clases que heredan de acto
 		stage.draw();
+		stage.act(Gdx.graphics.getDeltaTime()); //de esta menera se llama a las funciones act y draw de todas las clases que heredan de acto
+
 
 	}
 	
 	@Override
 	public void dispose () {
 		super.dispose();
-		stage.dispose();
 		texturePJ.dispose();
 		textureES.dispose();
 		textureEZ.dispose();
+		stage.dispose();
+
 	}
 }

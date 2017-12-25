@@ -11,12 +11,10 @@ import com.badlogic.gdx.math.MathUtils;
  */
 
 public class EnemyStraight extends Enemy {
-
     int i = 0;
-    private int velocity;
     public EnemyStraight(Texture texture){
         this.texture = texture;
-        velocity = -110;
+        this.velocityX = -100;
     }
 
     public void act(float delta){
@@ -24,6 +22,7 @@ public class EnemyStraight extends Enemy {
         movment(delta);
     }
     public void movment(float delta){
-        setX(getX() + velocity * delta);
+        setX(getX() + this.velocityX*delta);
+        //System.out.println(this.getX());
     }
 }
