@@ -18,11 +18,7 @@ public class GameObject extends Actor {
      //   sprite = _sprite;
     //}
     public void draw(Batch batch, float parentAlpha){
-        //implementarlo
-        //batch.draw(sprite, getX(), getY());//nose si faltan parametros
         batch.draw(texture, getX(), getY(), 0,0, texture.getWidth(),texture.getHeight(), getScaleX(),
         getScaleY(), getRotation(), 0,0,texture.getWidth(), texture.getHeight(),true, false);
-        //sprite.draw(batch);
-        //sprite.scale(0.5f);
     }
 }

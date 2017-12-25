@@ -1,6 +1,7 @@
 package com.rtype.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.math.Vector2;
 
@@ -10,6 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 
 public class InputProcesador extends InputAdapter {
     private Player personaje;
+    private Bullet bullet;
     private Vector2 lastTouch = new Vector2();
     private int delay = 100;
 
@@ -20,6 +22,11 @@ public class InputProcesador extends InputAdapter {
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button){
         lastTouch.set(screenX, screenY);
+        if(button == Input.Buttons.RIGHT){
+           // bullet.Spawn();
+            System.out.println("shot");
+            return true;
+        }
         return true;
     }
 

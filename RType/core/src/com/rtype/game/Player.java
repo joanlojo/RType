@@ -19,8 +19,6 @@ public class Player extends GameObject {
         Gdx.input.setInputProcessor(inputProcesador);
     }
     public void act(float delta){
-        //implementarlo con el delay
-        //if el raton se mueve-> mover la nave
     }
     public void goUp(float delta){
         setY(getY() - 110*delta);

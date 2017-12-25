@@ -11,11 +11,11 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class RTypeGame extends Game {
 	private Stage stage;
-	private Sprite spriteP = new Sprite();
-	private Texture texturePJ, textureES, textureEZ;
+	private Texture texturePJ, textureES, textureEZ, textureB;
   	private Player player;
 	private EnemyStraight enemyStraight;
 	private EnemyZigzag enemyZigzag;
+	private Bullet bullet;
 
 	@Override
 	public void create () {
@@ -23,9 +23,11 @@ public class RTypeGame extends Game {
 		texturePJ = new Texture("pj.png");
 		textureES = new Texture("enemyStright.png");
 		textureEZ = new Texture("enemyZigZag.png");
+		textureB = new Texture("bullet.png");
 		player = new Player(texturePJ);
 		enemyStraight = new EnemyStraight(textureES);
 		enemyZigzag = new EnemyZigzag(textureEZ);
+		bullet = new Bullet(textureB);
 
 		stage.addActor(player);
 		player.scaleBy(0.001f);
@@ -39,6 +41,9 @@ public class RTypeGame extends Game {
 		stage.addActor(enemyStraight);
 		enemyStraight.setRotation(90);
 		enemyStraight.scaleBy(0.001f);
+
+		stage.addActor(bullet);
+		bullet.setPosition(300,300);
 
 
 	}
