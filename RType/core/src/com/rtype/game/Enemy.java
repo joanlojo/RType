@@ -14,6 +14,7 @@ public abstract class Enemy extends GameObject {
     public abstract void act(float delta);
     public void Spawn(){
         if(i > 1000) {
+            //EnemyStraight enemyStraight = new EnemyStraight(texture);
             setPosition(700, math.random(0, Gdx.graphics.getHeight()));
             i = 0;
         }

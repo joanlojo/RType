@@ -17,7 +17,7 @@ int i = 0;
     }
 
     public void act(float delta){
-        Spawn();
+       // Spawn();
         movment(delta);
     }
     public void movment(float delta) {
@@ -26,14 +26,5 @@ int i = 0;
         setY(getY() + this.velocityY * delta);
         setX(getX() + this.velocityX * delta);
 
-    }
-    public void Spawn(){
-       /* if(i > 50) {
-            EnemyZigzag enemyZigzag = new EnemyZigzag(this.texture);
-            System.out.println(enemyZigzag.texture);
-            this.setPosition(700, math.random(0, Gdx.graphics.getHeight()));
-            i = 0;
-        }*/
-        i+=1;
     }
 }

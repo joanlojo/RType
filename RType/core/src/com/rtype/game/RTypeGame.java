@@ -3,6 +3,7 @@ package com.rtype.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -15,9 +16,8 @@ public class RTypeGame extends Game {
   	private Player player;
 	private EnemyStraight enemyStraight;
 	private EnemyZigzag enemyZigzag;
-	private Bullet bullet;
-
-	private InputProcesador inputProcesador, inputProcesador2;
+	//private Bullet bullet;
+	private InputProcesador inputProcesador;
 
 	@Override
 	public void create () {
@@ -26,10 +26,10 @@ public class RTypeGame extends Game {
 		textureES = new Texture("enemyStright.png");
 		textureEZ = new Texture("enemyZigZag.png");
 		textureB = new Texture("bullet.png");
-		player = new Player(texturePJ);
+		player = new Player(texturePJ, new Sprite(new Texture(Gdx.files.internal("bullet.png"))));
 		enemyStraight = new EnemyStraight(textureES);
 		enemyZigzag = new EnemyZigzag(textureEZ);
-		bullet = new Bullet(textureB);
+		//bullet = new Bullet(textureB);
 
 		stage.addActor(player);
 		player.scaleBy(0.001f);
@@ -44,17 +44,18 @@ public class RTypeGame extends Game {
 		enemyStraight.setRotation(90);
 		enemyStraight.scaleBy(0.001f);
 
-		stage.addActor(bullet);
+		//stage.addActor(bullet);
 		//bullet.setPosition(300,300);
 
 		inputProcesador = new InputProcesador(player);
 		Gdx.input.setInputProcessor(inputProcesador);
-		//inputProcesador2 = new InputProcesador(bullet);
+
 		//Gdx.input.setInputProcessor(inputProcesador2);
 	}
 
 	@Override
 	public void render () {
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		super.render();
 		stage.draw();
 		stage.act(Gdx.graphics.getDeltaTime()); //de esta menera se llama a las funciones act y draw de todas las clases que heredan de acto
