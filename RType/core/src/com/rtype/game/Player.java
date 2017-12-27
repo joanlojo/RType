@@ -11,14 +11,23 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class Player extends GameObject {
     //GameObject gameObject;
-    private InputProcesador inputProcesador;
-
+    //public static Player p = new Player(texture);
+    //private InputProcesador inputProcesador;
+    public Player(){}
     public Player(Texture texture){
         this.texture = texture;
-        inputProcesador = new InputProcesador(this);
-        Gdx.input.setInputProcessor(inputProcesador);
+        //inputProcesador = new InputProcesador(this);
+        //Gdx.input.setInputProcessor(inputProcesador);
     }
+
     public void act(float delta){
+        //System.out.println(Y());
+    }
+    public float X(){
+        return this.getX();
+    }
+    public float Y(){
+        return this.getY();
     }
     public void goUp(float delta){
         setY(getY() - 110*delta);

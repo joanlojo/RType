@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
  */
 
 public class EnemyZigzag extends Enemy {
-
+int i = 0;
     public EnemyZigzag(Texture texture){
         this.texture = texture;
         this.velocityX = -30;
@@ -26,5 +26,14 @@ public class EnemyZigzag extends Enemy {
         setY(getY() + this.velocityY * delta);
         setX(getX() + this.velocityX * delta);
 
+    }
+    public void Spawn(){
+       /* if(i > 50) {
+            EnemyZigzag enemyZigzag = new EnemyZigzag(this.texture);
+            System.out.println(enemyZigzag.texture);
+            this.setPosition(700, math.random(0, Gdx.graphics.getHeight()));
+            i = 0;
+        }*/
+        i+=1;
     }
 }

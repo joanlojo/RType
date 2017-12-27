@@ -25,4 +25,12 @@ public class EnemyStraight extends Enemy {
         setX(getX() + this.velocityX*delta);
         //System.out.println(this.getX());
     }
+    public void Spawn(){
+       /* if(i > 50) {
+            EnemyStraight enemyStraight = new EnemyStraight(this.texture);
+            this.setPosition(700, math.random(0, Gdx.graphics.getHeight()));
+            i = 0;
+        }*/
+        i+=1;
+    }
 }

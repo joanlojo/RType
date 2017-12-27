@@ -18,13 +18,16 @@ public class InputProcesador extends InputAdapter {
     public InputProcesador(Player k){
         personaje = k;
     }
-
+    public InputProcesador(Bullet b){
+        bullet = b;
+    }
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button){
         lastTouch.set(screenX, screenY);
         if(button == Input.Buttons.RIGHT){
-           // bullet.Spawn();
-            System.out.println("shot");
+            //bullet.b.Spawn();
+            bullet.b.Spawn();
+            //System.out.println("shot");
             return true;
         }
         return true;

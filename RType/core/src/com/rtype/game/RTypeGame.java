@@ -17,6 +17,8 @@ public class RTypeGame extends Game {
 	private EnemyZigzag enemyZigzag;
 	private Bullet bullet;
 
+	private InputProcesador inputProcesador, inputProcesador2;
+
 	@Override
 	public void create () {
 		stage = new Stage();
@@ -43,9 +45,12 @@ public class RTypeGame extends Game {
 		enemyStraight.scaleBy(0.001f);
 
 		stage.addActor(bullet);
-		bullet.setPosition(300,300);
+		//bullet.setPosition(300,300);
 
-
+		inputProcesador = new InputProcesador(player);
+		Gdx.input.setInputProcessor(inputProcesador);
+		//inputProcesador2 = new InputProcesador(bullet);
+		//Gdx.input.setInputProcessor(inputProcesador2);
 	}
 
 	@Override
@@ -63,6 +68,7 @@ public class RTypeGame extends Game {
 		texturePJ.dispose();
 		textureES.dispose();
 		textureEZ.dispose();
+        textureB.dispose();
 		stage.dispose();
 
 	}
