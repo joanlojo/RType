@@ -16,7 +16,7 @@ public class RTypeGame extends Game {
   	private Player player;
 	private EnemyStraight enemyStraight;
 	private EnemyZigzag enemyZigzag;
-	//private Bullet bullet;
+	private Bullet bullet;
 	private InputProcesador inputProcesador;
 
 	@Override
@@ -26,10 +26,10 @@ public class RTypeGame extends Game {
 		textureES = new Texture("enemyStright.png");
 		textureEZ = new Texture("enemyZigZag.png");
 		textureB = new Texture("bullet.png");
-		player = new Player(texturePJ, new Sprite(new Texture(Gdx.files.internal("bullet.png"))));
+		player = new Player(texturePJ);
 		enemyStraight = new EnemyStraight(textureES);
 		enemyZigzag = new EnemyZigzag(textureEZ);
-		//bullet = new Bullet(textureB);
+		bullet = new Bullet(textureB, player);
 
 		stage.addActor(player);
 		player.scaleBy(0.001f);
@@ -47,7 +47,7 @@ public class RTypeGame extends Game {
 		//stage.addActor(bullet);
 		//bullet.setPosition(300,300);
 
-		inputProcesador = new InputProcesador(player);
+		inputProcesador = new InputProcesador(stage, player, bullet);
 		Gdx.input.setInputProcessor(inputProcesador);
 
 		//Gdx.input.setInputProcessor(inputProcesador2);

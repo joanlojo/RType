@@ -9,11 +9,11 @@ import com.badlogic.gdx.math.MathUtils;
 
 public abstract class Enemy extends GameObject {
     MathUtils math;
-    private int i = 1001;
+    private int i = 0;
     public int velocityX, velocityY;
     public abstract void act(float delta);
     public void Spawn(){
-        if(i > 1000) {
+        if(i > 50) {
             //EnemyStraight enemyStraight = new EnemyStraight(texture);
             setPosition(700, math.random(0, Gdx.graphics.getHeight()));
             i = 0;

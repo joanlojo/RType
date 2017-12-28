@@ -17,7 +17,7 @@ int i = 0;
     }
 
     public void act(float delta){
-       // Spawn();
+        Spawn();
         movment(delta);
     }
     public void movment(float delta) {

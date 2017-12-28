@@ -19,41 +19,38 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 public class Player extends GameObject {
     Group group = new Group();
-    Image textureB;
-    private float velocityB;
+    //Sprite spriteB;
+    //Image bullet;
+    private float velocityB, velocityP;
     private Vector2 lastTouch = new Vector2();
-    public Player(Texture texture, Sprite textureB){
+    public Player(Texture texture){
         this.texture = texture;
-        this.textureB = new Image(textureB);
+       // this.spriteB =spriteB;
         setTouchable(Touchable.enabled);
-        this.velocityB = 60;
-        group.addActor(this);
-
+        this.velocityB = 80;
+        this.velocityP = 150;
     }
-
+    //public Image bullet = new Image(spriteB);
     public void act(float delta){
-        textureB.setX(textureB.getX() + this.velocityB * delta);
+        //bullet.setX(bullet.getX() + this.velocityB * delta);
     }
     public void goUp(float delta){
-        //group = (Group)getStage().getActors().first();
-        setY(getY() - 110*delta);
-        if(getY() <= 70) {
-            setY(70);
+            setY(getY() - 150*delta);
+            if(getY() <= 70) {
+                setY(70);
+            }
         }
-    }
     public void goDown(float delta){
-       // group = (Group)getStage().getActors().first();
-        setY(getY() +110*delta);
+        setY(getY() +150*delta);
         if(getY() >=500){
             setY(500);
         }
     }
 
     public void spawnBullet(){
-        getStage().addActor(textureB);
-        textureB.setPosition(this.getX(), this.getY());
-        //Group group = (Group)getStage().getActors().first();
-        //System.out.println(this.getX() + " " + this.getY());
+       /* bullet = new Image(spriteB);
+        getStage().addActor(bullet);
+        bullet.setPosition(this.getX()+ this.texture.getWidth()/2, this.getY()-50);*/
     }
 
 }
