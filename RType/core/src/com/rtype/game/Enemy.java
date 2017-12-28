@@ -2,6 +2,7 @@ package com.rtype.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Rectangle;
 
 /**
  * Created by sobre on 21/12/2017.
@@ -9,15 +10,8 @@ import com.badlogic.gdx.math.MathUtils;
 
 public abstract class Enemy extends GameObject {
     MathUtils math;
-    private int i = 0;
-    public int velocityX, velocityY;
+    public int velocityY, velocityX;
+    public Rectangle bounds;
+    AssetsManager assetsManager = new AssetsManager();
     public abstract void act(float delta);
-    public void Spawn(){
-        if(i > 50) {
-            //EnemyStraight enemyStraight = new EnemyStraight(texture);
-            setPosition(700, math.random(0, Gdx.graphics.getHeight()));
-            i = 0;
-        }
-        i+=1;
-    }
 }

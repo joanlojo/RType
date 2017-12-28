@@ -11,15 +11,16 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
  */
 
 public class InputProcesador extends InputAdapter {
-    private Player personaje;
+    private Player player;
     private Bullet bullet;
     private Stage stage;
     private Vector2 lastTouch = new Vector2();
     private int delay = 100;
+    AssetsManager assetsManager = new AssetsManager();
 
     public InputProcesador(Stage s, Player p, Bullet b){
         stage = s;
-        personaje = p;
+        player = p;
         bullet = b;
     }
 
@@ -28,6 +29,7 @@ public class InputProcesador extends InputAdapter {
 //        bullet = (Bullet)stage.getActors().get(3);
         lastTouch.set(screenX, screenY);
         if(button == Input.Buttons.RIGHT){
+            Bullet bullet = new Bullet(assetsManager.bullet,player);
             stage.addActor(bullet);
             bullet.Spawn();
             //personaje.spawnBullet();
@@ -44,10 +46,10 @@ public class InputProcesador extends InputAdapter {
         lastTouch = newTouch;
         if(delta.y < 0){
 
-            personaje.goUp(Gdx.graphics.getDeltaTime());
+            player.goUp(Gdx.graphics.getDeltaTime());
         }
         else{
-            personaje.goDown(Gdx.graphics.getDeltaTime());
+            player.goDown(Gdx.graphics.getDeltaTime());
         }
         return true;
     }

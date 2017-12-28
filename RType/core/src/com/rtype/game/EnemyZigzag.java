@@ -3,21 +3,24 @@ package com.rtype.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 
 /**
  * Created by sobre on 21/12/2017.
  */
 
 public class EnemyZigzag extends Enemy {
-int i = 0;
+    Vector2 posEZ;
     public EnemyZigzag(Texture texture){
         this.texture = texture;
         this.velocityX = -30;
         this.velocityY = -60;
+        posEZ = new Vector2();
+        bounds = new Rectangle(this.getX(), this.getY(), (float)this.texture.getWidth(), (float)this.texture.getHeight());
     }
-
     public void act(float delta){
-        Spawn();
+        //Spawn();
         movment(delta);
     }
     public void movment(float delta) {
@@ -25,6 +28,6 @@ int i = 0;
         if(getY() >= 450){this.velocityY = -60;}
         setY(getY() + this.velocityY * delta);
         setX(getX() + this.velocityX * delta);
-
     }
+
 }

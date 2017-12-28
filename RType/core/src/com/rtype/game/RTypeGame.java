@@ -18,22 +18,24 @@ public class RTypeGame extends Game {
 	private EnemyZigzag enemyZigzag;
 	private Bullet bullet;
 	private InputProcesador inputProcesador;
+	private AssetsManager assetsManager;
 
 	@Override
 	public void create () {
 		stage = new Stage();
-		texturePJ = new Texture("pj.png");
+		assetsManager = new AssetsManager();
+		/*texturePJ = new Texture("pj.png");
 		textureES = new Texture("enemyStright.png");
 		textureEZ = new Texture("enemyZigZag.png");
-		textureB = new Texture("bullet.png");
-		player = new Player(texturePJ);
-		enemyStraight = new EnemyStraight(textureES);
-		enemyZigzag = new EnemyZigzag(textureEZ);
-		bullet = new Bullet(textureB, player);
+		textureB = new Texture("bullet.png");*/
+		player = new Player(assetsManager.player);
+		enemyStraight = new EnemyStraight(assetsManager.enemyStraight);
+		enemyZigzag = new EnemyZigzag(assetsManager.enemyZigZag);
+		bullet = new Bullet(assetsManager.bullet, player);
 
 		stage.addActor(player);
 		player.scaleBy(0.001f);
-		player.setPosition(10,Gdx.graphics.getHeight()/2 + texturePJ.getHeight()/2);
+		player.setPosition(10,Gdx.graphics.getHeight()/2 + assetsManager.player.getHeight()/2);
 		player.setRotation(-90);
 
 		stage.addActor(enemyZigzag);
@@ -44,13 +46,8 @@ public class RTypeGame extends Game {
 		enemyStraight.setRotation(90);
 		enemyStraight.scaleBy(0.001f);
 
-		//stage.addActor(bullet);
-		//bullet.setPosition(300,300);
-
 		inputProcesador = new InputProcesador(stage, player, bullet);
 		Gdx.input.setInputProcessor(inputProcesador);
-
-		//Gdx.input.setInputProcessor(inputProcesador2);
 	}
 
 	@Override
@@ -66,10 +63,10 @@ public class RTypeGame extends Game {
 	@Override
 	public void dispose () {
 		super.dispose();
-		texturePJ.dispose();
-		textureES.dispose();
-		textureEZ.dispose();
-        textureB.dispose();
+		assetsManager.player.dispose();
+		assetsManager.bullet.dispose();
+		assetsManager.enemyStraight.dispose();
+        assetsManager.enemyZigZag.dispose();
 		stage.dispose();
 
 	}
