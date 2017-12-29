@@ -7,36 +7,25 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 
 /**
  * Created by sobre on 21/12/2017.
  */
 
 public class EnemyStraight extends Enemy {
-    Vector2 posES;
-    int i = 0;
-    public EnemyStraight(Texture texture){
+    int i;
+    public EnemyStraight(Texture texture, Stage stage){
         this.texture = texture;
+        i = 0;
+        this.stage = stage;
         this.velocityX = -100;
-        posES = new Vector2();
-        bounds = new Rectangle(this.getX(), this.getY(), (float)this.texture.getWidth(), (float)this.texture.getHeight());
+        boundsE = new Rectangle(this.getX(), this.getY(), (float)this.texture.getWidth(), (float)this.texture.getHeight());
     }
     public void act(float delta){
-        EnemyStraight enemyStraight;
-        if(i > 50) {
-            enemyStraight = new EnemyStraight(assetsManager.enemyStraight);
-            enemyStraight.setPosition(700, math.random(0, Gdx.graphics.getHeight()));
-            i = 0;
-        }
-        i+=1;
-
-        setX(getX() + this.velocityX*delta);
-
+        movment(delta);
     }
     public void movment(float delta){
-
-    }
-    public void Spawn(){
-
+        setX(getX() + this.velocityX*delta);
     }
 }

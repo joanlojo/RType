@@ -18,19 +18,16 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Bullet extends Actor  {
     Vector2 posbBullet;
-    private Rectangle bounds;
+    private Rectangle boundsB;
     Player player;
     public Texture textureB;
     int velocity;
     public Bullet(Texture texture, Player p){
         this.textureB = texture;
-        this.velocity = 60;
+        this.velocity = 100;
         player = p;
         posbBullet = new Vector2();
-        bounds = new Rectangle(this.getX(), this.getY(), (float)this.textureB.getWidth(), (float)this.textureB.getHeight());
-  //      Group group = new Group();
-//        group.addActor(this);
-//        p = (Player)getStage().getActors().get(1);
+        this.boundsB = new Rectangle(this.getX(), this.getY(), (float)this.textureB.getWidth(), (float)this.textureB.getHeight());
     }
 
     public void draw(Batch batch, float parentAlpha){

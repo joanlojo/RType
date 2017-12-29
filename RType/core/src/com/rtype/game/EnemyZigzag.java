@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 
 /**
  * Created by sobre on 21/12/2017.
@@ -12,15 +13,16 @@ import com.badlogic.gdx.math.Vector2;
 
 public class EnemyZigzag extends Enemy {
     Vector2 posEZ;
-    public EnemyZigzag(Texture texture){
+    int i = 0;
+    public EnemyZigzag(Texture texture, Stage stage){
         this.texture = texture;
         this.velocityX = -30;
         this.velocityY = -60;
         posEZ = new Vector2();
-        bounds = new Rectangle(this.getX(), this.getY(), (float)this.texture.getWidth(), (float)this.texture.getHeight());
+        this.stage = stage;
+        boundsE = new Rectangle(this.getX(), this.getY(), (float)this.texture.getWidth(), (float)this.texture.getHeight());
     }
     public void act(float delta){
-        //Spawn();
         movment(delta);
     }
     public void movment(float delta) {
@@ -29,5 +31,4 @@ public class EnemyZigzag extends Enemy {
         setY(getY() + this.velocityY * delta);
         setX(getX() + this.velocityX * delta);
     }
-
 }

@@ -19,18 +19,17 @@ public class RTypeGame extends Game {
 	private Bullet bullet;
 	private InputProcesador inputProcesador;
 	private AssetsManager assetsManager;
+	private EnemyManager enemyManager;
 
 	@Override
 	public void create () {
 		stage = new Stage();
 		assetsManager = new AssetsManager();
-		/*texturePJ = new Texture("pj.png");
-		textureES = new Texture("enemyStright.png");
-		textureEZ = new Texture("enemyZigZag.png");
-		textureB = new Texture("bullet.png");*/
+		enemyManager = new EnemyManager(assetsManager, stage);
+
 		player = new Player(assetsManager.player);
-		enemyStraight = new EnemyStraight(assetsManager.enemyStraight);
-		enemyZigzag = new EnemyZigzag(assetsManager.enemyZigZag);
+		enemyStraight = new EnemyStraight(assetsManager.enemyStraight, stage);
+		enemyZigzag = new EnemyZigzag(assetsManager.enemyZigZag, stage);
 		bullet = new Bullet(assetsManager.bullet, player);
 
 		stage.addActor(player);
@@ -45,6 +44,7 @@ public class RTypeGame extends Game {
 		stage.addActor(enemyStraight);
 		enemyStraight.setRotation(90);
 		enemyStraight.scaleBy(0.001f);
+		stage.addActor(enemyManager);
 
 		inputProcesador = new InputProcesador(stage, player, bullet);
 		Gdx.input.setInputProcessor(inputProcesador);
