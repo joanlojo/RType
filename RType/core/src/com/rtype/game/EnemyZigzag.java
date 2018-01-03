@@ -24,6 +24,7 @@ public class EnemyZigzag extends Enemy {
     }
     public void act(float delta){
         movment(delta);
+        this.boundsE.set(this.getX(), this.getY(), (float)this.texture.getWidth(), (float)this.texture.getHeight());
     }
     public void movment(float delta) {
         if(getY() <= 0) {this.velocityY = 60;}

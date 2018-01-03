@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 /**
@@ -12,27 +13,25 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class InputProcesador extends InputAdapter {
     private Player player;
-    private Bullet bullet;
     private Stage stage;
     private Vector2 lastTouch = new Vector2();
-    private int delay = 100;
     AssetsManager assetsManager = new AssetsManager();
 
-    public InputProcesador(Stage s, Player p, Bullet b){
+    public InputProcesador(Stage s, Player p){
         stage = s;
         player = p;
-        bullet = b;
     }
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button){
-//        bullet = (Bullet)stage.getActors().get(3);
         lastTouch.set(screenX, screenY);
         if(button == Input.Buttons.RIGHT){
             Bullet bullet = new Bullet(assetsManager.bullet,player);
+            //Group group = new Group();
+            //group.addActor(bullet);
             stage.addActor(bullet);
+            assetsManager.shot.play();
             bullet.Spawn();
-            //personaje.spawnBullet();
             return true;
         }
         return true;
@@ -42,10 +41,8 @@ public class InputProcesador extends InputAdapter {
     public boolean touchDragged(int screenX, int screenY, int pointer){
         Vector2 newTouch = new Vector2(screenX, screenY);
         Vector2 delta = newTouch.cpy().sub(lastTouch);
-        //personaje =  (Player)stage.getActors().first();
         lastTouch = newTouch;
         if(delta.y < 0){
-
             player.goUp(Gdx.graphics.getDeltaTime());
         }
         else{

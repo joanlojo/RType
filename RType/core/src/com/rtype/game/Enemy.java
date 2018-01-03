@@ -14,7 +14,6 @@ public abstract class Enemy extends GameObject {
     public int velocityY, velocityX;
     public Stage stage;
     public Rectangle boundsE;
-    AssetsManager assetsManager = new AssetsManager();
     public abstract void act(float delta);
 
 }

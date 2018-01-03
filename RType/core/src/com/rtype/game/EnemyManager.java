@@ -14,6 +14,8 @@ public class EnemyManager extends Actor {
     MathUtils math;
     Stage stage;
     private AssetsManager assetsManager;
+    EnemyStraight enemyStraight;
+    EnemyZigzag enemyZigzag;
 
     public EnemyManager(AssetsManager assetsManager, Stage stage){
         i = 0;
@@ -23,11 +25,11 @@ public class EnemyManager extends Actor {
 
     public void act(float delta){
         if(i > 300) {
-            EnemyStraight enemyStraight = new EnemyStraight(assetsManager.enemyStraight, stage);
+            enemyStraight = new EnemyStraight(assetsManager.enemyStraight, stage);
             enemyStraight.setPosition(700, math.random(0, Gdx.graphics.getHeight()));
             enemyStraight.setRotation(90);
             stage.addActor(enemyStraight);
-            EnemyZigzag enemyZigzag = new EnemyZigzag(assetsManager.enemyZigZag, stage);
+            enemyZigzag = new EnemyZigzag(assetsManager.enemyZigZag, stage);
             enemyZigzag.setPosition(700, math.random(0, Gdx.graphics.getHeight()));
             enemyZigzag.setRotation(90);
             stage.addActor(enemyZigzag);

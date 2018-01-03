@@ -12,7 +12,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class RTypeGame extends Game {
 	private Stage stage;
-	private Texture texturePJ, textureES, textureEZ, textureB;
   	private Player player;
 	private EnemyStraight enemyStraight;
 	private EnemyZigzag enemyZigzag;
@@ -46,7 +45,7 @@ public class RTypeGame extends Game {
 		enemyStraight.scaleBy(0.001f);
 		stage.addActor(enemyManager);
 
-		inputProcesador = new InputProcesador(stage, player, bullet);
+		inputProcesador = new InputProcesador(stage, player);
 		Gdx.input.setInputProcessor(inputProcesador);
 	}
 
@@ -56,8 +55,6 @@ public class RTypeGame extends Game {
 		super.render();
 		stage.draw();
 		stage.act(Gdx.graphics.getDeltaTime()); //de esta menera se llama a las funciones act y draw de todas las clases que heredan de acto
-
-
 	}
 	
 	@Override

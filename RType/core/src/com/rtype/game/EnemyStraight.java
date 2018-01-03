@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class EnemyStraight extends Enemy {
     int i;
+
     public EnemyStraight(Texture texture, Stage stage){
         this.texture = texture;
         i = 0;
@@ -24,6 +25,7 @@ public class EnemyStraight extends Enemy {
     }
     public void act(float delta){
         movment(delta);
+        this.boundsE.set(this.getX(), this.getY(), (float)this.texture.getWidth(), (float)this.texture.getHeight());
     }
     public void movment(float delta){
         setX(getX() + this.velocityX*delta);
