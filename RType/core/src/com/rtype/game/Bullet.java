@@ -26,10 +26,10 @@ public class Bullet extends GameObject  {
         this.velocity = 100;
         player = p;
         posbBullet = new Vector2();
-        boundsB = new Rectangle(this.getX(), this.getY(), (float)this.texture.getWidth(), (float)this.texture.getHeight());
+        //boundsB = new Rectangle(this.getX(), this.getY(), (float)this.texture.getWidth(), (float)this.texture.getHeight());
     }
     public void act(float delta){
-        this.boundsB.set(this.getX(), this.getY(), (float)this.texture.getWidth(), (float)this.texture.getHeight());
+        //this.boundsB.set(this.getX(), this.getY(), (float)this.texture.getWidth(), (float)this.texture.getHeight());
         setX(getX() + velocity*delta);
     }
     public void Spawn(){

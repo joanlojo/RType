@@ -16,10 +16,10 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 public class EnemyStraight extends Enemy {
     int i;
 
-    public EnemyStraight(Texture texture, Stage stage){
+    public EnemyStraight(Texture texture){
         this.texture = texture;
         i = 0;
-        this.stage = stage;
+        //this.stage = stage;
         this.velocityX = -100;
         boundsE = new Rectangle(this.getX(), this.getY(), (float)this.texture.getWidth(), (float)this.texture.getHeight());
     }

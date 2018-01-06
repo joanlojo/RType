@@ -14,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 public class EnemyZigzag extends Enemy {
     Vector2 posEZ;
     int i = 0;
-    public EnemyZigzag(Texture texture, Stage stage){
+    public EnemyZigzag(Texture texture){
         this.texture = texture;
         this.velocityX = -30;
         this.velocityY = -60;

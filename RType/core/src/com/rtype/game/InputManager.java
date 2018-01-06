@@ -11,13 +11,13 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
  * Created by jlopez on 12/18/2017.
  */
 
-public class InputProcesador extends InputAdapter {
+public class InputManager extends InputAdapter {
     private Player player;
     private Stage stage;
     private Vector2 lastTouch = new Vector2();
     AssetsManager assetsManager = new AssetsManager();
 
-    public InputProcesador(Stage s, Player p){
+    public InputManager(Stage s, Player p){
         stage = s;
         player = p;
     }
@@ -27,8 +27,6 @@ public class InputProcesador extends InputAdapter {
         lastTouch.set(screenX, screenY);
         if(button == Input.Buttons.RIGHT){
             Bullet bullet = new Bullet(assetsManager.bullet,player);
-            //Group group = new Group();
-            //group.addActor(bullet);
             stage.addActor(bullet);
             assetsManager.shot.play();
             bullet.Spawn();

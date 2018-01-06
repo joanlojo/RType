@@ -1,13 +1,8 @@
 package com.rtype.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class RTypeGame extends Game {
@@ -16,7 +11,7 @@ public class RTypeGame extends Game {
 	private EnemyStraight enemyStraight;
 	private EnemyZigzag enemyZigzag;
 	private Bullet bullet;
-	private InputProcesador inputProcesador;
+	private InputManager inputManager;
 	private AssetsManager assetsManager;
 	private EnemyManager enemyManager;
 
@@ -27,8 +22,8 @@ public class RTypeGame extends Game {
 		enemyManager = new EnemyManager(assetsManager, stage);
 
 		player = new Player(assetsManager.player);
-		enemyStraight = new EnemyStraight(assetsManager.enemyStraight, stage);
-		enemyZigzag = new EnemyZigzag(assetsManager.enemyZigZag, stage);
+		enemyStraight = new EnemyStraight(assetsManager.enemyStraight);
+		enemyZigzag = new EnemyZigzag(assetsManager.enemyZigZag);
 		bullet = new Bullet(assetsManager.bullet, player);
 
 		stage.addActor(player);
@@ -45,8 +40,8 @@ public class RTypeGame extends Game {
 		enemyStraight.scaleBy(0.001f);
 		stage.addActor(enemyManager);
 
-		inputProcesador = new InputProcesador(stage, player);
-		Gdx.input.setInputProcessor(inputProcesador);
+		inputManager = new InputManager(stage, player);
+		Gdx.input.setInputProcessor(inputManager);
 	}
 
 	@Override
