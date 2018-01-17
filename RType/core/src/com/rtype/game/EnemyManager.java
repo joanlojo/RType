@@ -14,8 +14,8 @@ public class EnemyManager extends Actor {
     MathUtils math;
     Stage stage;
     private AssetsManager assetsManager;
-    EnemyStraight enemyStraight;
-    EnemyZigzag enemyZigzag;
+    private EnemyStraight enemyStraight;
+    private EnemyZigzag enemyZigzag;
 
     public EnemyManager(AssetsManager assetsManager, Stage stage){
         i = 0;
