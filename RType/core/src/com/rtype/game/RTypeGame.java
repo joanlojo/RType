@@ -10,6 +10,7 @@ public class RTypeGame extends Game {
   	private Player player;
 	private EnemyStraight enemyStraight;
 	private EnemyZigzag enemyZigzag;
+	private EnemyNew enemyNew;
 	private Bullet bullet;
 	private InputManager inputManager;
 	private AssetsManager assetsManager;
@@ -24,6 +25,7 @@ public class RTypeGame extends Game {
 		player = new Player(assetsManager.player);
 		enemyStraight = new EnemyStraight(assetsManager.enemyStraight);
 		enemyZigzag = new EnemyZigzag(assetsManager.enemyZigZag);
+		enemyNew = new EnemyNew(assetsManager.enemyNew);
 		bullet = new Bullet(assetsManager.bullet, player);
 
 		stage.addActor(player);
@@ -38,6 +40,11 @@ public class RTypeGame extends Game {
 		stage.addActor(enemyStraight);
 		enemyStraight.setRotation(90);
 		enemyStraight.scaleBy(0.001f);
+
+		//stage.addActor(enemyNew);
+		//enemyStraight.setRotation(90);
+		//enemyStraight.scaleBy(0.001f);
+
 		stage.addActor(enemyManager);
 
 		inputManager = new InputManager(stage, player);
@@ -59,6 +66,7 @@ public class RTypeGame extends Game {
 		assetsManager.bullet.dispose();
 		assetsManager.enemyStraight.dispose();
         assetsManager.enemyZigZag.dispose();
+		assetsManager.enemyNew.dispose();
 		stage.dispose();
 
 	}

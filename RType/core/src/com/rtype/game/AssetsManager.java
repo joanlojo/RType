@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.Texture;
 public class AssetsManager {
     public Texture enemyStraight = new Texture("enemyStright.png");
     public Texture enemyZigZag = new Texture("enemyZigZag.png");
+    public Texture enemyNew = new Texture("nave3.png");
     public Texture player = new Texture("pj.png");
     public Texture bullet = new Texture("bullet.png");
 
